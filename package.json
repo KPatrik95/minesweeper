@@ -1,7 +1,6 @@
 {
-  "scripts":
-{
-  "start": "node countNeighbourhood.js",
-  "test": "mocha"
-}
+
+  "scripts": {
+    "test": "mocha"
+  }
 }
