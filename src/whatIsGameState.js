@@ -1,17 +1,16 @@
-
-
-
-
-
-
-
-function whatIsGameState(mF, vF) {
-    for (var i = 0; i < mF.length; i++) {
-        for (var j = 0; j < mF[i].length; j++) {
-            return mF[i][j] == -1 && vF[i][j] ? -1 : mF[i][j] != -1 && !vF[i][j] ? 0 : 1;
+function whatIsGameState(mineField, visibleField) {
+    for (var i = 0; i < mineField.length; i++) {
+        for (var j = 0; j < mineField[i].length; j++) {
+            if (mineField[i][j] == -1 && visibleField[i][j]) {
+                return -1;
+                continue;
+            }
+            if (mineField[i][j] != -1 && !visibleField[i][j]) {
+                return 0;
+                continue;
+            }
+            // return mineField[i][j] == -1 && visibleField[i][j] ? -1 : mineField[i][j] != -1 && !visibleField[i][j] ? 0 : 1;
         }
     }
+    return 1;
 }
-// ha van mine a filden ahol visible = true: -1
-//ha nincs sima mező shol visible = false: 1
-//egyébként: 0
