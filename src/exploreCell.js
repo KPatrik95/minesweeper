@@ -1,0 +1,13 @@
+function exploreCell(mineField, visibleField, x, y){
+   if(visibleField[x][y]==false)
+    {
+        visibleField[x][y]==true;
+    }
+
+    if(mineField[x][y]==0)
+    {
+        exploreCellNeighbourhood(mineField,visibleField,x,y);
+
+    }
+}
+exports.exploreCell=exploreCell;
