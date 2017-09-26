@@ -1,4 +1,4 @@
-function TBD(n) {
+function countNeighbourhood(n) {
     var a;
     for (var i = 0; i < n.length; i++)
     {
@@ -36,4 +36,4 @@ function TBD(n) {
     return n;
 }
 
-exports.TBD=TBD;
+exports.countNeighbourhood=countNeighbourhood;
