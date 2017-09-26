@@ -1,6 +1,9 @@
 function generateMineField(width, height, mineCount){
 
-    var M;
+    var M = new Array(width);
+    for (var i = 0; i < width; i++) {
+        M[i] = new Array(height);
+    }
     for(var i=0; i<width; i++)
     {
         for(var j=0; j<height;j++)
@@ -11,12 +14,14 @@ function generateMineField(width, height, mineCount){
     var currentMines=0;
     while(currentMines<mineCount)
     {
-        var i=Math.floor((Math.random()*width)+1);
-        var j=Math.floor((Math.random()*height)+1);
-        if(M[i,j]==0)
+        var i=Math.floor((Math.random()*width));
+        var j=Math.floor((Math.random()*height));
+        if(M[i][j]==0)
         {
-            M[i,j]=-1;
+            M[i][j]=-1;
             currentMines++;
         }
     }
+    return M;
 }
+exports.generateMineField=generateMineField;
