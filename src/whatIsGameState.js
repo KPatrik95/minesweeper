@@ -1,4 +1,5 @@
 function whatIsGameState(mineField, visibleField) {
+    var value = 1;
     for (var i = 0; i < mineField.length; i++) {
         for (var j = 0; j < mineField[i].length; j++) {
             if (mineField[i][j] == -1 && visibleField[i][j]) {
@@ -6,11 +7,11 @@ function whatIsGameState(mineField, visibleField) {
                 continue;
             }
             if (mineField[i][j] != -1 && !visibleField[i][j]) {
-                return 0;
+                value = 0;
                 continue;
             }
-            // return mineField[i][j] == -1 && visibleField[i][j] ? -1 : mineField[i][j] != -1 && !visibleField[i][j] ? 0 : 1;
         }
     }
-    return 1;
+    return value;
 }
+exports.whatIsGameState=whatIsGameState;
