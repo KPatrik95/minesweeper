@@ -1,7 +1,7 @@
 function exploreCell(mineField, visibleField, x, y){
    if(visibleField[x][y]==false)
     {
-        visibleField[x][y]==true;
+        visibleField[x][y]=true;
     }
 
     if(mineField[x][y]==0)
