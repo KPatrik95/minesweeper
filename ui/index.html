@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Aknakereső</title>
+    <script type="text/javascript" src="controller.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
+
 <label id="minutes">00</label>:<label id="seconds">00</label>
 <script type="text/javascript">
-
-
-
-
-
 
     var minutesLabel = document.getElementById("minutes");
     var secondsLabel = document.getElementById("seconds");
@@ -37,11 +35,31 @@
         }
     }
 
-
-
-
     </script>
-<body>
-<button onclick="clearInterval(totalSeconds)">Stop</button>
+
+<body onload="createTable();">
+
+    <button onclick="clearInterval(totalSeconds)">Stop</button>
+    <div id="screen">
+        <div id="gameboard">
+            <div id="header">
+                <div class="header" id="counter"> <!--bombcounter-->
+                    COUNTER
+                </div>
+                <div class="header" id="smiley"> <!--smiley-->
+                    <img id="button" onclick="button"; src="facesmile.gif">
+                    <!--<button onclick="button();" id="button"></button>-->
+                </div>
+                <div class="header" id="timer"> <!--timer-->
+                    TIMER
+                </div>
+            </div>
+
+            <table id="tablazat">
+            </table>
+
+        </div>
+    </div>
 </body>
 </html>
+
