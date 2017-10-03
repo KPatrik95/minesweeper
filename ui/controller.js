@@ -76,7 +76,7 @@ function createTable(x,y,mines){
         {
             var td = document.createElement("td");
             tr.appendChild(td);
-            td.innerHTML = i+":"+j;
+            //td.innerHTML = i+":"+j;
 
             matrix[i].push(td);
 

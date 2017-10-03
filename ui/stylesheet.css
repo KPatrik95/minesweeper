@@ -1,14 +1,13 @@
 #screen{
     width: 100%;
 }
-
 #gameboard{
-    width: 340px;
+    width: auto;
     margin: auto;
-    margin: 0px;
     border: 2px solid;
     border-color: #eeeeee #999999 #999999 #eeeeee;
-    background-color: #c0c0c0
+    background-color: #c0c0c0;
+    display: table-cell;
 }
 
 #button{
@@ -21,7 +20,6 @@
 #header{
     text-align: center;
     height: 40px;
-    vertical-align: middle;
 }
 #difficulty{
 
@@ -42,16 +40,27 @@
     vertical-align: middle;
 }
 
+.kozepre{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #counter, #smiley, #timer{
-    width: auto;
     padding-right: 5px;
     padding-left: 5px;
+}
+
+#timer, #counter {
+    background-color: black;
+    color: red;
+    font-family: digital-7;
+    width: 40px;
 }
 
 table{
     margin-left: auto;
     margin-right: auto;
-    border: solid 2px grey;
+    border: solid 2px;
     border-color: #999999 #eeeeee #eeeeee #999999;
     border-spacing: 0px;
     user-select: none;
@@ -66,7 +75,6 @@ table{
 td{
     margin: 0px;
     border: 2px solid;
-    border: 2px solid;
     border-color: #eeeeee #999999 #999999 #eeeeee;
     background-color: #c0c0c0;
     box-sizing: border-box;
@@ -74,25 +82,15 @@ td{
     height: 24px;
     max-width: 24px;
     max-height: 24px;
+    min-width: 24px;
+    min-height: 24px;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
 }
 
+.flaged{
 
-
-
-
-.cell{
-    background-color: #c0c0c0;
-    border: 2px solid;
-    border-color: #eeeeee #999999 #999999 #eeeeee;
-    box-sizing: border-box;
-    width: 24px;
-    height: 24px;
-    max-width: 24px;
-    max-height: 24px;
-    cursor: pointer;
 }
 .exploredCell1 {
     color: #0100fe;
@@ -123,22 +121,8 @@ td{
     padding: 1px;
     font-weight: bold;
     border: 1px solid #999999;
-    /*background-color: #c0c0c0;*/
     cursor: default;
     font-size: 100%;
     font-weight: bold;
     line-height: 100%;
 }
-
-
-/*.highlight{
-    background-color: greenyellow;
-    font-weight: bold;
-    border: 1px solid;
-    border-color: #999999 #999999 #999999 #999999;
-    background-color: #c0c0c0;
-    cursor: default;
-    font-size: 100%;
-    font-weight: bold;
-    line-height: 100%;
-}*/
