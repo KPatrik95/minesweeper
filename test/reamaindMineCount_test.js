@@ -1,5 +1,5 @@
 var expect=require('chai').expect;
-var remaindMineCount = require('../src/remaindMineCount').remaindMinceCount;
+var remaindMineCount = require('../src/remaindMineCount').remaindMineCount;
 
 describe ("RemaindMineCount",function () {
     it("Teszt 1",function () {
