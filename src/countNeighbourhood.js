@@ -1,39 +1,39 @@
-function countNeighbourhood(n) {
+function countNeighbourhood(mineField) {
     var a;
-    for (var i = 0; i < n.length; i++)
+    for (var i = 0; i < mineField.length; i++)
     {
-        a = n.length;
-        for (var j = 0; j < n[i].length; j++)
+        a = mineField.length;
+        for (var j = 0; j < mineField[i].length; j++)
         {
-            if(n[i][j]!==-1) {
-                if (i - 1 >= 0 && j - 1 >= 0 && n[i - 1][j - 1] === -1) {
-                    n[i][j]++;
+            if(mineField[i][j]!==-1) {
+                if (i - 1 >= 0 && j - 1 >= 0 && mineField[i - 1][j - 1] === -1) {
+                    mineField[i][j]++;
                 }
-                if (i - 1>=0 && n[i - 1][j] === -1) {
-                    n[i][j]++;
+                if (i - 1>=0 && mineField[i - 1][j] === -1) {
+                    mineField[i][j]++;
                 }
-                if (i - 1>=0&&j + 1<n[i-1].length && n[i - 1][j + 1] === -1) {
-                    n[i][j]++;
+                if (i - 1>=0&&j + 1<mineField[i-1].length && mineField[i - 1][j + 1] === -1) {
+                    mineField[i][j]++;
                 }
-                if (j - 1>=0 && n[i][j - 1] === -1) {
-                    n[i][j]++;
+                if (j - 1>=0 && mineField[i][j - 1] === -1) {
+                    mineField[i][j]++;
                 }
-                if (j + 1<n[i].length && n[i][j + 1] === -1) {
-                    n[i][j]++;
+                if (j + 1<mineField[i].length && mineField[i][j + 1] === -1) {
+                    mineField[i][j]++;
                 }
-                if (i + 1<a && n[i + 1][j] === -1) {
-                    n[i][j]++;
+                if (i + 1<a && mineField[i + 1][j] === -1) {
+                    mineField[i][j]++;
                 }
-                if (i + 1<a&&j - 1>=0 && n[i + 1][j - 1] === -1) {
-                    n[i][j]++;
+                if (i + 1<a&&j - 1>=0 && mineField[i + 1][j - 1] === -1) {
+                    mineField[i][j]++;
                 }
-                if (i + 1<a&&j + 1<n[i+1].length && n[i + 1][j + 1] === -1) {
-                    n[i][j]++;
+                if (i + 1<a&&j + 1<mineField[i+1].length && mineField[i + 1][j + 1] === -1) {
+                    mineField[i][j]++;
                 }
             }
         }
     }
-    return n;
+    return mineField;
 }
 
 exports.countNeighbourhood=countNeighbourhood;

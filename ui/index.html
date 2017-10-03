@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <title>Aknakereső</title>
     <script type="text/javascript" src="controller.js"></script>
+
+    <script type="text/javascript">
+        var exports = {};
+    </script>
+    <script type="text/javascript" src="../src/generateMineField.js"></script>
+    <script type="text/javascript" src="../src/countNeighbourhood.js"></script>
+    <script type="text/javascript" src="../src/exploreCellNeighbourhood.js"></script>
+    <script type="text/javascript" src="../src/exploreCell.js"></script>
+    <script type="text/javascript" src="../src/whatIsGameState.js"></script>
+    <script type="text/javascript" src="../src/initialise.js"></script>
+
     <link href="stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -39,7 +50,6 @@
 
 <body onload="createTable();">
 
-    <button onclick="clearInterval(intervalId);">Stop</button>
     <div id="screen">
         <div id="gameboard">
             <div id="header">

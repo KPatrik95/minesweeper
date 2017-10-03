@@ -1,23 +1,17 @@
-function gomb(){
-
-    /*alert('42');
-    document.getElementById("gomb").style.backgroundColor="red";
-    var li = document.createElement("li");
-    li.innerHTML = "szöveg";
-    var ul = document.getElementById("lista");
-    ul.appendChild(li);*/
-
-    /*var matrix = [];
-    console.log(matrix);
-    for(var i=0;i<8;i++){
-        matrix.push([]);
-        console.log(i, matrix);
-
-        for(var j=0;j<8;j++){
-            matrix[i].push(i*10+j);
-        }
+function showCell(x, y) {
+    if(mineField[x][y] === 0) {
+        matrix[x][y].innerHTML = "";
+    } else if (mineField[x][y] === -1) {
+        matrix[x][y].innerHTML = "💣";
+    } else {
+        matrix[x][y].innerHTML = mineField[x][y];
     }
-    console.log(matrix);*/
+    matrix[x][y].classList.add("exploredCell"+mineField[x][y]);
+    matrix[x][y].classList.add("exploredCell");
+}
+
+function stopTheClock(){
+    clearInterval(intervalId);
 }
 
 var matrix = [];
@@ -45,28 +39,28 @@ function createTable(){
             var fn = function (i2, j2) {
                 td.onclick = function() {
                     console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
-                    if(matrix[i2][j2].classList.contains("exploredCell")){
-                        matrix[i2][j2].classList.remove("exploredCell");
-                    } else{
-                        matrix[i2][j2].classList.add("exploredCell");
+
+                    exploreCell(mineField, visibleField, i2, j2);
+                    var state = whatIsGameState(mineField, visibleField);
+                    if(state === -1){
+                        alert('Vesztettél!');
+                        stopTheClock();
+                    } else if(state === 1) {
+                        alert('Nyertél!');
+                        stopTheClock();
                     }
-                }
+
+                    console.log('visible', visibleField);
+                };
 
                 td.ondblclick = function(){
                     console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
                     matrix[i2][j2].classList.add("highlight-double");
-                }
+                };
             };
 
             fn(i, j);
         }
-    }
-
-    console.log(matrix);
-    //matrix[4][3].classList.add("highlight");
-    //.style.backgroundColor = "blue";highlight
-    function button(){
-        console.log("ALMA");
     }
 }
 
