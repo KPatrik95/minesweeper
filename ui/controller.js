@@ -10,6 +10,21 @@ function showCell(x, y) {
     matrix[x][y].classList.add("exploredCell");
 }
 
+function explosion(x, y) {
+    for (var i = 0; i < x; i++)
+    {
+        for (var j = 0; j < y; j++)
+        {
+            if (mineField[i][j] === -1)
+            {
+                matrix[i][j].innerHTML = "đź’Ł";
+                matrix[i][j].classList.add('exploredCell3');
+                exploreCell(mineField, visibleField, i, j);
+            }
+        }
+    }
+}
+
 function stopTheClock(){
     clearInterval(intervalId);
 }
@@ -43,6 +58,7 @@ function createTable(){
                     exploreCell(mineField, visibleField, i2, j2);
                     var state = whatIsGameState(mineField, visibleField);
                     if(state === -1){
+                        explosion(8, 8);
                         alert('Vesztettél!');
                         stopTheClock();
                     } else if(state === 1) {
