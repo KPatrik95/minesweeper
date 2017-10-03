@@ -1,4 +1,4 @@
 function remaindMineCount(flagField,mineCount) {
     return mineCount - flagFieldCaunt(flagField);
 }
-exports.remaindMineCoun=remaindMineCoun;
+exports.remaindMineCoun=remaindMineCount;
