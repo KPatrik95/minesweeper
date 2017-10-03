@@ -8,13 +8,10 @@ for(var i=0;i<8;i++){
         flagField[i][j] = false;
     }
 }
-function putFlag(visibleField ,i,j)
-{
-    if(!visibleField[i][j])
-    {
-        flagField[i]=true;
+function putFlag(visibleField ,i,j) {
+    if (!visibleField[i][j]) {
+        flagField[i] = true;
     }
-
 }
 
 function flagFieldCount(flagField) {
@@ -28,6 +25,7 @@ function flagFieldCount(flagField) {
     }
     return count;
 }
+exports.flagFieldCount=flagFieldCount;
 
 
 
