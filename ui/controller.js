@@ -17,7 +17,7 @@ function explosion(x, y) {
         {
             if (mineField[i][j] === -1)
             {
-                matrix[i][j].innerHTML = "đź’Ł";
+                matrix[i][j].innerHTML = "💣";
                 matrix[i][j].classList.add('exploredCell3');
                 exploreCell(mineField, visibleField, i, j);
             }
