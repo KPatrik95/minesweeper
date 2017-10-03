@@ -48,10 +48,22 @@
 
     </script>
 
-<body onload="createTable();">
-
+<body>
+<div id="difficulty">
+    <input type="radio" name="difficulty" value="easy" onclick="selected(0);" id="easy" checked="checked"/>Easy - 9x9 field | 10 💣<br>
+    <input type="radio" name="difficulty" value="medium" onclick="selected(1);" id="medium"/>Medium - 16x16 field | 40 💣<br>
+    <input type="radio" name="difficulty" value="hard" onclick="selected(2);" id="hard"/>Hard - 16x30 field | 99 💣<br>
+    <input type="radio" name="difficulty" value="custom" onclick="selected(-1);" id="customized"/>Customize<br>
+    <div id="custom">
+        <input type="text" id="width" required/>
+        <input type="text" id="height" required/>
+        <input type="text" id="mines" required/>
+    </div>
+    <button id="startButton" onclick="startGame();">Start game!</button>
+</div>
     <div id="screen">
         <div id="gameboard">
+
             <div id="header">
                 <div class="header" id="counter"> <!--bombcounter-->
                     COUNTER

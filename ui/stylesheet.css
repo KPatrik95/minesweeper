@@ -23,7 +23,20 @@
     height: 40px;
     vertical-align: middle;
 }
+#difficulty{
 
+}
+#startButton{
+    width:120px;
+    height:40px;
+
+}
+#custom{
+ display: none;
+}
+#difficulty input{
+    width:50px;
+}
 .header{
     display: table-cell;
     vertical-align: middle;

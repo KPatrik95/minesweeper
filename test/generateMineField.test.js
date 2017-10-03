@@ -1,6 +1,5 @@
 var expect=require('chai').expect;
 var generateMineField=require('../src/generateMineField').generateMineField;
-
 function sum(M,width,height)
 {
     var osszeg=0;
@@ -21,13 +20,13 @@ describe("generateMines", function() {
         expect(result).to.be.equal(-10);
     });
     it("10x10, 30 mines", function() {
-        var result=generateMineField(10,10,30);
+        var result=generateMineField(10,10,10);
         result =sum(result, 10,10);
-        expect(result).to.be.equal(-30);
+        expect(result).to.be.equal(-10);
     });
     it("20x10, 30 mines", function() {
         var result=generateMineField(20,10,30);
-        result =sum(result, 20,10);
+        result =sum(result,20,10);
         expect(result).to.be.equal(-30);
     });
 });
