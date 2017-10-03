@@ -28,26 +28,55 @@ function explosion(x, y) {
 function stopTheClock(){
     clearInterval(intervalId);
 }
+function selected(a) {
+    if(a==-1){
+        document.getElementById("custom").style.display = "block";
+    }else{
+        document.getElementById("custom").style.display = "none";
+    }
+    console.log('select', a);
+}
+function startGame(){
+    if(document.getElementById("easy").checked){
+        createTable(9,9,10);
+
+    }
+    else if(document.getElementById("medium").checked){
+        createTable(16,16,40);
+    }
+    else if(document.getElementById("hard").checked){
+        createTable(16,30,99);
+    }
+    else{
+        var width=document.getElementById("width").value;
+        var height=document.getElementById("height").value;
+        var mines=document.getElementById("mines").value;
+        if(!isNaN(width) && !isNaN(height) && mines<width*height){
+            createTable(width,height,mines);
+        }
+    }
+    document.getElementById("startButton").style.display="none";
+}
 
 var matrix = [];
-
-function createTable(){
+var ingame=false;
+function createTable(x,y,mines){
 
     var table = document.getElementById("tablazat");
     //console.log(table);
 
-    for(var i=0;i<8;i++)
+    for(var i=0;i<x;i++)
     {
         var tr = document.createElement("tr");
         table.appendChild(tr);
 
         matrix.push([]);
 
-        for(var j=0;j<8;j++)
+        for(var j=0;j<y;j++)
         {
             var td = document.createElement("td");
             tr.appendChild(td);
-            td.innerHTML = i+":"+j;
+            //td.innerHTML = i+":"+j;
 
             matrix[i].push(td);
 
@@ -59,21 +88,23 @@ function createTable(){
                         if(!flagField[i2[j2]])
                         {
                             td.onclick = function() {
-                                console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
 
-                                exploreCell(mineField, visibleField, i2, j2);
-                                var state = whatIsGameState(mineField, visibleField);
-                                if(state === -1){
-                                    explosion(8, 8);
-                                    alert('Vesztettél!');
-                                    stopTheClock();
-                                } else if(state === 1) {
-                                    alert('Nyertél!');
-                                    stopTheClock();
-                                }
+                    if(!ingame){initialize(i2,j2,x,y,mines);}
+                    console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
 
-                                console.log('visible', visibleField);
-                            };
+                    exploreCell(mineField, visibleField, i2, j2);
+                    var state = whatIsGameState(mineField, visibleField);
+                    if(state === -1){
+                        explosion(x, y);
+                        alert('Vesztettél!');
+                        stopTheClock();
+                    } else if(state === 1) {
+                        alert('Nyertél!');
+                        stopTheClock();
+                    }
+
+                    console.log('visible', visibleField);
+                };
 
                             td.ondblclick = function(){
                                 console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");

@@ -1,12 +1,16 @@
-var mineField = generateMineField(8, 8, 10);
 
-var visibleField = [];
-for(var i=0;i<8;i++){
-    visibleField[i] = [];
-    for(var j=0;j<8;j++) {
-        visibleField[i][j] = false;
+
+    var mineField=[];
+    var visibleField = [];
+    function initialize(x,y,width,height, mines) {
+        mineField=generateMineField(x,y,width, height, mines);
+
+    for (var i = 0; i < width; i++) {
+        visibleField[i] = [];
+        for (var j = 0; j < height; j++) {
+            visibleField[i][j] = false;
+        }
     }
+    mineField = countNeighbourhood(mineField);
+    console.log(mineField, visibleField);
 }
-
-mineField = countNeighbourhood(mineField);
-console.log(mineField, visibleField);
