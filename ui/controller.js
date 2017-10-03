@@ -95,7 +95,7 @@ function createTable(x,y,mines){
                     exploreCell(mineField, visibleField, i2, j2);
                     var state = whatIsGameState(mineField, visibleField);
                     if(state === -1){
-                        explosion(8, 8);
+                        explosion(x, y);
                         alert('Vesztettél!');
                         stopTheClock();
                     } else if(state === 1) {
