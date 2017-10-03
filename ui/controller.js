@@ -52,27 +52,43 @@ function createTable(){
             matrix[i].push(td);
 
             var fn = function (i2, j2) {
-                td.onclick = function() {
-                    console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
 
-                    exploreCell(mineField, visibleField, i2, j2);
-                    var state = whatIsGameState(mineField, visibleField);
-                    if(state === -1){
-                        explosion(8, 8);
-                        alert('Vesztettél!');
-                        stopTheClock();
-                    } else if(state === 1) {
-                        alert('Nyertél!');
-                        stopTheClock();
-                    }
+                switch (event.button)
+                {
+                    case 0:
+                        if(!flagField[i2[j2]])
+                        {
+                            td.onclick = function() {
+                                console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
 
-                    console.log('visible', visibleField);
-                };
+                                exploreCell(mineField, visibleField, i2, j2);
+                                var state = whatIsGameState(mineField, visibleField);
+                                if(state === -1){
+                                    explosion(8, 8);
+                                    alert('Vesztettél!');
+                                    stopTheClock();
+                                } else if(state === 1) {
+                                    alert('Nyertél!');
+                                    stopTheClock();
+                                }
 
-                td.ondblclick = function(){
-                    console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
-                    matrix[i2][j2].classList.add("highlight-double");
-                };
+                                console.log('visible', visibleField);
+                            };
+
+                            td.ondblclick = function(){
+                                console.log("Rákattintottál a ["+i2+":"+j2+"] mezőre.");
+                                matrix[i2][j2].classList.add("highlight-double");
+                            };
+                        }
+                        break;
+                    case 2:
+                        putFlag(i2,j2);
+                        matrix[i2][j2].classList.add("flaged");
+                        break;
+
+
+                }
+
             };
 
             fn(i, j);
